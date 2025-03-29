@@ -6,7 +6,7 @@ My solutions to exercises from MIT's [The Missing Semester of Your CS Education]
 - [x] Shell Tools and Scripting
 - [x] Editors (Vim)
 - [x] Data Wrangling
-- [ ] Command-line Environment
+- [x] Command-line Environment
 - [x] Version Control (Git)
 - [ ] Debugging and Profiling
 - [ ] Metaprogramming
