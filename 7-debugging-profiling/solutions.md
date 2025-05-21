@@ -275,6 +275,10 @@ Inplace quicksort
 
 #### Exercise 6
 
+According to the `pycallgraph.png`, `fib0` is called 21 times.
+
+With memoization, each `fibN` function is now called 1 time.
+
 #### Exercise 7
 
 #### Exercise 8
