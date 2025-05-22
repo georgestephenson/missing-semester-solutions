@@ -8,7 +8,7 @@ My solutions to exercises from MIT's [The Missing Semester of Your CS Education]
 - [x] Data Wrangling
 - [x] Command-line Environment
 - [x] Version Control (Git)
-- [ ] Debugging and Profiling
+- [x] Debugging and Profiling
 - [ ] Metaprogramming
 - [ ] Security and Cryptography
 - [ ] Potpourri
