@@ -281,7 +281,54 @@ With memoization, each `fibN` function is now called 1 time.
 
 #### Exercise 7
 
+In first terminal
+
+```
+$ python -m http.server 4444
+Serving HTTP on 0.0.0.0 port 4444 (http://0.0.0.0:4444/) ...
+```
+
+In other terminal
+
+```
+$ lsof | grep "4444 (LISTEN)"
+python    5712                                gste    3u     IPv4              33493       0t0      TCP *:4444 (LISTEN)
+$ kill 5712
+```
+
+In first terminal again
+
+```
+Terminated
+```
+
 #### Exercise 8
+
+`taskset --cpu-list 0,2 stress -c 3` when running this command, we are specifying that that process must only run on CPU #0 and #2. `stress -c 3` creates 3 workers but they must be split between the two CPUs, so `htop` show's the CPUs running them at 66.6% CPU load on average. 
+
+Using `cgroups`
+
+```
+$ sudo mkdir /sys/fs/cgroup/stress
+$ echo 0,2 | sudo tee /sys/fs/cgroup/stress/cpuset.cpus
+
+$ echo $$ | sudo tee /sys/fs/cgroup/stress/cgroup.procs
+exec stress -c 3
+5693
+stress: info: [5693] dispatching hogs: 3 cpu, 0 io, 0 vm, 0 hdd
+```
+
+Limiting memory consumption
+
+```
+$ sudo mkdir /sys/fs/cgroup/memtest
+$ echo 128M | sudo tee /sys/fs/cgroup/memtest/memory.max
+$ echo $$ | sudo tee /sys/fs/cgroup/memtest/cgroup.procs
+$ exec stress -m 3
+```
+
+Viewing `htop`, each `stress` worker has a RES around 43MB.
 
 #### Exercise 9
 
+Sniffing packets in Wireshark, after running the `curl` command I am able to see a GET HTTP request and a 200 OK response.
