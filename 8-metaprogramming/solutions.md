@@ -25,3 +25,12 @@ Use cases for different version requirements for dependencies in Rust's build sy
   At a major-level a bare `*` version doesn't make much sense as later versions can have breaking changes. But a potential use case could be that the project may be highly experimental and using a "fail fast" approach to CI/CD and maximising speed of updating dependencies. If a build or tests fail due to a major-updated dependency, you want to incorporate the new version and fix your build as soon as possible.
 - Comparison, manually specifying version ranges. As mentioned with caret, there may be bugs you've noticed with specific versions, for example before or after a specific patch version.
 - Multiple, manually specifying any of multiple version ranges. This could be a bug in a version that was introduced with one patch, e.g. 4.2.3, and fixed in a later patch, e.g. 4.3.6. So you might specify `< 4.2.2, >= 4.3.6` any `4.3` version without the bug is fine.
+
+### Exercise 3
+
+For texting that a command runs, the pre-commit is as simple as running the command as any failure in the command will stop the commit.
+
+```
+#!/bin/sh
+make --directory ./8-metaprogramming/files
+```
