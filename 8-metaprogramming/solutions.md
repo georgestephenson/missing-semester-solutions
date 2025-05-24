@@ -28,7 +28,7 @@ Use cases for different version requirements for dependencies in Rust's build sy
 
 ### Exercise 3
 
-For texting that a command runs, the pre-commit is as simple as running the command as any failure in the command will stop the commit.
+For testing that a command runs, the pre-commit can be as simple as running the command as any failure in the command will stop the commit.
 
 ```
 #!/bin/sh
