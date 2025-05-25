@@ -22,6 +22,15 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Runs write-good on .md files
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: Runs write-good on .md files
+    steps:
+      - uses: actions/checkout@v4
+      - name: Write good action step
+        uses: georgestephenson/writegood-github-action@v2
+
   # Runs shellcheck on shell scripts
   shellcheck:
     name: Shellcheck
