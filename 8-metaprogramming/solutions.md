@@ -34,3 +34,33 @@ For testing that a command runs, the pre-commit can be as simple as running the 
 #!/bin/sh
 make --directory ./8-metaprogramming/files
 ```
+
+### Exercise 4
+
+Rather than creating a new repository for this exercise, I created a GitHub Pages for this repository, [`missing-semester-solutions`](https://georgestephenson.github.io/missing-semester-solutions/). Ah, respository inception, marvellous.
+
+I added the following job to the existing website workflow, as suggested:
+
+```
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+```
+
+It wasn't specified that this is a pre-requisite before we can build and deploy the website, which we could specify in the `.yml`, actually it runs in parallel.
+
+In my case it fails on some scripts I have in `./2-shell-tools/scripts/`:
+
+```
+./2-shell-tools/scripts/debug-rarefail.sh:4:9: note: Check exit code directly with e.g. 'if mycmd;', not indirectly with $?. [SC2181]
+./2-shell-tools/scripts/debug-rarefail.sh:6:16: note: $/${} is unnecessary on arithmetic variables. [SC2004]
+./2-shell-tools/scripts/marco.sh:9:3: warning: Use 'cd ... || exit' or 'cd ... || return' in case cd fails. [SC2164]
+./2-shell-tools/scripts/marco.sh:9:6: note: Double quote to prevent globbing and word splitting. [SC2086]
+Error: Process completed with exit code 1.
+```
+
+Well fixing them wasn't part of the exercise!
