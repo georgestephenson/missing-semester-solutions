@@ -64,3 +64,76 @@ Error: Process completed with exit code 1.
 ```
 
 Well fixing them wasn't part of the exercise!
+
+### Exercise 5
+
+Create a docker GitHub action using below code. Tested action by once again running it against this repository and it came up with several grammar suggestions on my `solutions.md` files.
+
+**Dockerfile**
+
+```
+# Container image that runs your code
+FROM node:18-slim
+
+# Install write-good globally
+RUN npm install -g write-good
+
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Code file to execute when the docker container starts up (`entrypoint.sh`)
+ENTRYPOINT ["bash", "/entrypoint.sh"]
+
+```
+
+**action.yml**
+
+```
+# action.yml
+name: 'Write Good'
+description: 'Checks all .md files are written good'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+```
+
+**entrypoint.sh**
+
+```
+#!/usr/bin/env bash
+set -eux
+
+shopt -s globstar nullglob
+
+echo "::group::Files to check"
+printf '%s\n' **/*.md
+echo "::endgroup::"
+
+echo "::group::write-good suggestions"
+if write-good **/*.md; then
+  echo "✅ No suggestions"
+else
+  echo "❌ Suggestions above"
+  exit 1
+fi
+echo "::endgroup::"
+```
+
+**Examples of suggestions output**
+
+```
+  In 5-command-line/solutions.md
+  =============
+  history, didn't find too many useful aliases to setup. Need to setup some git al
+                           ^^^^
+  "many" can weaken meaning on line 41 at column 33
+  -------------
+  hub.com/twpayne/chezmoi) quite easy to quick start and setup so I'm using that t
+                           ^^^^^
+  "quite" is a weasel word on line 47 at column 54
+  -------------
+   using that to manage my few linux tool configs so far (bash, git, tmux, vim).
+                           ^^^
+  "few" is a weasel word on line 47 at column 121
+```
