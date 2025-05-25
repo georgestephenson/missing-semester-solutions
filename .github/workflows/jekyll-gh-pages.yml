@@ -29,7 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Write good action step
-        uses: georgestephenson/writegood-github-action@v1
+        uses: georgestephenson/writegood-github-action@v2
   # Build job
   build:
     runs-on: ubuntu-latest
