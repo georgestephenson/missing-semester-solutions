@@ -9,7 +9,7 @@ My solutions to exercises from MIT's [The Missing Semester of Your CS Education]
 - [x] [Command-line Environment](5-command-line/solutions.md)
 - [x] [Version Control (Git)](6-version-control-git/solutions.md)
 - [x] [Debugging and Profiling](7-debugging-profiling/solutions.md)
-- [ ] [Metaprogramming](8-metaprogramming/solutions.md)
-- [ ] Security and Cryptography
-- [ ] Potpourri
-- [ ] Q&A
+- [x] [Metaprogramming](8-metaprogramming/solutions.md)
+- [ ] [Security and Cryptography](9-security/solutions.md)
+- [ ] [Potpourri](10-potpourri/notes.md)
+- [ ] [Q&A](11-qa/notes.md)
