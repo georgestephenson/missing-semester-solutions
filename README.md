@@ -12,4 +12,4 @@ My solutions to exercises from MIT's [The Missing Semester of Your CS Education]
 - [x] [Metaprogramming](8-metaprogramming/solutions.md)
 - [ ] [Security and Cryptography](9-security/solutions.md)
 - [x] [Potpourri](10-potpourri/notes.md)
-- [ ] [Q&A](11-qa/notes.md)
+- [x] [Q&A](11-qa/notes.md)
