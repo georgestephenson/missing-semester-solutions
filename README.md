@@ -10,6 +10,6 @@ My solutions to exercises from MIT's [The Missing Semester of Your CS Education]
 - [x] [Version Control (Git)](6-version-control-git/solutions.md)
 - [x] [Debugging and Profiling](7-debugging-profiling/solutions.md)
 - [x] [Metaprogramming](8-metaprogramming/solutions.md)
-- [ ] [Security and Cryptography](9-security/solutions.md)
+- [x] [Security and Cryptography](9-security/solutions.md)
 - [x] [Potpourri](10-potpourri/notes.md)
 - [x] [Q&A](11-qa/notes.md)
